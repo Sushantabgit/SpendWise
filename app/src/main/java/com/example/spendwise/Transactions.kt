@@ -7,7 +7,7 @@ data class Transactions(
     var date: String,
     var direction: Boolean,
 )
-
+val totalBudget: Double = 15000.00
 val transactionList = listOf(
     Transactions(1,"Sushant", 1250.50, "15-11-2023",true),
     Transactions(2,"John", 800.0, "16-11-2023",true),

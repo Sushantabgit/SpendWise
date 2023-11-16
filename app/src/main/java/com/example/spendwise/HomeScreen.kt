@@ -52,10 +52,6 @@ import androidx.navigation.NavHostController
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun homeScreen(navHostController: NavHostController) {
-    val totalBudget: Double = 15000.00
-    val income: Double = transactionList.filter { !it.direction }.sumOf { it.amount }
-    val spend: Double = transactionList.filter { it.direction }.sumOf { it.amount }
-    var avail: Double = income + (totalBudget - spend)
 
     Column(
         modifier = Modifier
@@ -68,7 +64,7 @@ fun homeScreen(navHostController: NavHostController) {
             fontSize = 25.sp
         )
         Text(
-            text = "₹$avail",
+            text = "₹" + (transactionList.filter { !it.direction }.sumOf { it.amount } + (totalBudget - transactionList.filter { it.direction }.sumOf { it.amount })).toString(),
             fontWeight = Bold,
             fontSize = 50.sp
 
@@ -92,11 +88,11 @@ fun homeScreen(navHostController: NavHostController) {
                         .padding(10.dp)
                 ) {
                     Text(
-                        text = "Income"
+                        text = "Earned"
                     )
                     Text(
                         fontWeight = Bold,
-                        text = "+₹$income",
+                        text = "+₹" + transactionList.filter { !it.direction }.sumOf { it.amount }.toString(),
                         fontSize = 30.sp
                     )
                 }
@@ -119,7 +115,7 @@ fun homeScreen(navHostController: NavHostController) {
                     Text("Spend")
                     Text(
                         fontWeight = Bold,
-                        text = "-₹$spend",
+                        text = "-₹" + transactionList.filter { it.direction }.sumOf { it.amount }.toString(),
                         fontSize = 30.sp
                     )
                 }

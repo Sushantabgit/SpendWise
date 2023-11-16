@@ -52,9 +52,9 @@ import androidx.navigation.NavHostController
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun homeScreen(navHostController: NavHostController) {
-    var totalBudget: Double = 15000.00
-    var income: Double = 2599.00
-    var spend: Double = 4902.75
+    val totalBudget: Double = 15000.00
+    val income: Double = transactionList.filter { !it.direction }.sumOf { it.amount }
+    val spend: Double = transactionList.filter { it.direction }.sumOf { it.amount }
     var avail: Double = income + (totalBudget - spend)
 
     Column(

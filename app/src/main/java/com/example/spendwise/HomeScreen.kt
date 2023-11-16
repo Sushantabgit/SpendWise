@@ -185,12 +185,13 @@ fun transactionUi(
 
         }
     }
+    Spacer(modifier = Modifier.size(10.dp))
     Divider(
         modifier = Modifier
             .fillMaxWidth()
             .height(1.dp),
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f)
     )
-    Spacer(modifier = Modifier.size(10.dp))
+
 
 }

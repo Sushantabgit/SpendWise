@@ -5,12 +5,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -41,29 +46,28 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
-    NavigationBar     {
+    NavigationBar(
+        modifier = Modifier
+            .height(60.dp)
+    ) {
         NavigationBarItem(
-            selected = navController.currentDestination?.route == "Home",
+            selected = navController.currentDestination?.route == "HomeScreen",
             onClick = {
-                navController.navigate("Home")
+                navController.navigate("HomeScreen")
             },
             icon = {
                 Icon(imageVector = Icons.Default.Home, contentDescription = "Home")
-            },
-            label = { Text(text = "Home") }
+            }
         )
 
         NavigationBarItem(
             selected = navController.currentDestination?.route == "TransactionScreen",
             onClick = {
-                navController.navigate("Transaction") {
-                    // Add navigation options if needed
-                }
+                navController.navigate("TransactionScreen")
             },
             icon = {
                 Icon(imageVector = Icons.Default.List, contentDescription = "Transactions")
-            },
-            label = { Text(text = "Transactions") }
+            }
         )
     }
 }
@@ -74,9 +78,23 @@ fun AppContent(navController: NavHostController) {
     Scaffold(
         bottomBar = {
             BottomNavigationBar(navController = navController)
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {
+                    /*Todo*/
+                },
+                shape = RoundedCornerShape(50)
+            ) {
+                Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
+            }
         }
     ) { innerPadding ->
-        NavHost(navController = navController, startDestination = "HomeScreen", modifier = Modifier.padding(innerPadding)) {
+        NavHost(
+            navController = navController,
+            startDestination = "HomeScreen",
+            modifier = Modifier.padding(innerPadding)
+        ) {
             composable("HomeScreen") {
                 homeScreen(navController)
             }

@@ -13,6 +13,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -69,6 +70,15 @@ fun BottomNavigationBar(navController: NavHostController) {
                 Icon(imageVector = Icons.Default.List, contentDescription = "Transactions")
             }
         )
+        NavigationBarItem(
+            selected = navController.currentDestination?.route == "SettingsPage",
+            onClick = {
+                navController.navigate("SettingsPage")
+            },
+            icon = {
+                Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings")
+            }
+        )
     }
 }
 
@@ -100,6 +110,9 @@ fun AppContent(navController: NavHostController) {
             }
             composable("TransactionScreen") {
                 allTransactions(navController)
+            }
+            composable("SettingsPage") {
+                settingsScreen()
             }
         }
     }

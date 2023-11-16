@@ -51,7 +51,7 @@ import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun homeScreen(navHostController: NavHostController) {
+fun homeScreen() {
 
     Column(
         modifier = Modifier

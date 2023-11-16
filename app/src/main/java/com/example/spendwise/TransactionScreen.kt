@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
 @Composable
-fun allTransactions(navHostController: NavHostController){
+fun allTransactions(){
 
     Column(
         modifier = Modifier

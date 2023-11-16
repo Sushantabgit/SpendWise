@@ -73,9 +73,3 @@ fun settingsScreen() {
     }
 
 }
-
-@Composable
-@Preview
-fun review() {
-    settingsScreen()
-}

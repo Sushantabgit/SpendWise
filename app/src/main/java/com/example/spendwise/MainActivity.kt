@@ -1,6 +1,9 @@
 package com.example.spendwise
 
 import android.os.Bundle
+import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.PaddingValues
@@ -39,8 +42,11 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
-            AppContent(navController = rememberNavController())
+            SpendWiseTheme {
+                AppContent(navController = rememberNavController())
+            }
         }
     }
 }

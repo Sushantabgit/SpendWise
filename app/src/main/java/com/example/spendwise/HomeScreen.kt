@@ -56,7 +56,6 @@ fun homeScreen(navHostController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.White)
             .padding(10.dp, 0.dp)
     ) {
         Text(
@@ -88,10 +87,12 @@ fun homeScreen(navHostController: NavHostController) {
                         .padding(10.dp)
                 ) {
                     Text(
+                        color = Color.Black,
                         text = "Earned"
                     )
                     Text(
                         fontWeight = Bold,
+                        color = Color.Black,
                         text = "+₹" + transactionList.filter { !it.direction }.sumOf { it.amount }.toString(),
                         fontSize = 30.sp
                     )
@@ -112,9 +113,12 @@ fun homeScreen(navHostController: NavHostController) {
                     modifier = Modifier
                         .padding(10.dp),
                 ) {
-                    Text("Spend")
+                    Text(
+                        color = Color.Black,
+                        text = "Spend")
                     Text(
                         fontWeight = Bold,
+                        color = Color.Black,
                         text = "-₹" + transactionList.filter { it.direction }.sumOf { it.amount }.toString(),
                         fontSize = 30.sp
                     )
@@ -158,7 +162,6 @@ fun transactionUi(
 ) {
     Box(
         modifier = Modifier
-            .background(Color.White)
             .padding(5.dp)
     ) {
         Column(

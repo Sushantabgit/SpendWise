@@ -28,7 +28,6 @@ fun allTransactions(navHostController: NavHostController){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
             .padding(10.dp)
     ){
         Text(

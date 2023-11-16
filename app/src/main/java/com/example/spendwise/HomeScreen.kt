@@ -140,7 +140,8 @@ fun homeScreen(navHostController: NavHostController) {
                     transactionUi(
                         name = transaction.name,
                         amount = transaction.amount,
-                        date = transaction.date
+                        date = transaction.date,
+                        direction = transaction.direction
                     )
                 }
             }
@@ -156,7 +157,8 @@ fun homeScreen(navHostController: NavHostController) {
 fun transactionUi(
     name: String,
     amount: Double,
-    date: String
+    date: String,
+    direction: Boolean
 ) {
     Box(
         modifier = Modifier
@@ -175,11 +177,22 @@ fun transactionUi(
                     fontWeight = Bold,
                     text = "$name"
                 )
-                Text(
-                    fontSize = 20.sp,
-                    fontWeight = Bold,
-                    text = "₹$amount"
-                )
+                if (direction){
+                    Text(
+                        fontSize = 20.sp,
+                        fontWeight = Bold,
+                        text = "-₹$amount",
+                        color = Color.Red
+                    )
+                } else {
+                    Text(
+                        fontSize = 20.sp,
+                        fontWeight = Bold,
+                        text = "+₹$amount",
+                        color = Color.Green
+                    )
+                }
+
             }
             Text(text = "$date")
 

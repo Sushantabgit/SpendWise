@@ -50,7 +50,8 @@ fun allTransactions(navHostController: NavHostController){
                 transactionUi(
                     name = transaction.name,
                     amount = transaction.amount,
-                    date = transaction.date
+                    date = transaction.date,
+                    direction = transaction.direction
                 )
             }
         }

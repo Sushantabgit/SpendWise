@@ -238,17 +238,20 @@ fun MyForm(
         ) {
             RadioButton(
                 selected = isEarned,
-                onClick = { isEarned = true; onIsEarnedChange(isEarned) },
-                modifier = Modifier.align(CenterVertically)
-            )
-            Text("Earned", modifier = Modifier.clickable { isEarned = true; onIsEarnedChange(isEarned) })
-            Spacer(modifier = Modifier.width(16.dp))
-            RadioButton(
-                selected = !isEarned,
                 onClick = { isEarned = false; onIsEarnedChange(isEarned) },
                 modifier = Modifier.align(CenterVertically)
             )
             Text("Spend", modifier = Modifier.clickable { isEarned = false; onIsEarnedChange(isEarned) })
+
+            Spacer(modifier = Modifier.width(16.dp))
+
+            RadioButton(
+                selected = !isEarned,
+                onClick = { isEarned = true; onIsEarnedChange(isEarned) },
+                modifier = Modifier.align(CenterVertically)
+            )
+            Text("Earned", modifier = Modifier.clickable { isEarned = true; onIsEarnedChange(isEarned) })
+
         }
     }
 }
